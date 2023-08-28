@@ -17,7 +17,7 @@ const Home = () => {
         }
     }
 
-    console.log(data)
+    // console.log(data)
 
     return ( 
         <article className="grid gap-y-6 my-4">
