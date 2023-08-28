@@ -1,7 +1,7 @@
 import { createBrowserRouter, createRoutesFromElements, Route } from "react-router-dom";
 import App from "./App";
 import Home from "./pages/Home";
-import Search from "./pages/Search";
+import Search from "./pages/GeoLocation";
 
 export const router = createBrowserRouter(
     createRoutesFromElements(

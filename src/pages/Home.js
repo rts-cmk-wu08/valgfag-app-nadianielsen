@@ -12,7 +12,6 @@ const Home = () => {
         if(event.key === "Enter") {
         axios.get(url).then((response) => {
             setData(response.data)
-            console.log(response.data)
             setLocation('')
         })
         }
@@ -21,27 +20,29 @@ const Home = () => {
     console.log(data)
 
     return ( 
-        <article className="grid gap-y-4">
-            <input type="text" name="" id="" className="w-[70%] h-12 rounded-full bg-neutral-300/40 border-2 relative placeholder:text-neutral-100" 
+        <article className="grid gap-y-6 my-4">
+            <input type="text" name="" id="" className="h-10 w-72 place-self-center rounded-full shadow-md bg-neutral-300/30 border-2 placeholder:text-white" 
             value={location} 
             onChange={event => setLocation(event.target.value)} 
             onKeyUpCapture={searchLocation} 
-            placeholder=" Enter Location"/>
-            <article className="flex flex-col justify-center items-center">
-                <h2>{data.name}</h2>
-                {data.main ? <h1>{data.main.temp} C&deg;</h1> : null}
+            placeholder="  Enter Location"/>
+            <article className="flex flex-col gap-y-2 justify-center items-center place-self-center bg-neutral-300/30 w-60 py-4 rounded-2xl shadow-md">
+                <h2 className="text-3xl">{data.name}</h2>
+                {data.main ? <h1 className="text-lg">{data.main.temp} C&deg;</h1> : null}
                 {data.weather ? <p>{data.weather[0].main}</p> : null}
                 {/* <p className="relative -rotate-90 -right-20">clouds</p> */}
             </article>
-            
-            <article className="grid grid-flow-col place-content-center gap-x-6">
-                <section>
+            <article className="grid grid-flow-col gap-x-6 bg-neutral-300/30 shadow-md rounded-2xl w-72 place-self-center py-4">
+                <section className="place-self-center">
+                    <h2>Feels like:</h2>
                     {data.main ? <p>{data.main.feels_like} C&deg;</p> : null }
                 </section>
-                <section>
+                <section >
+                    <h2>Minium:</h2>
                     {data.main ? <p>{data.main.temp_min} C&deg;</p> : null }
                 </section>
                 <section>
+                    <h2>Maxium:</h2>
                     {data.main ? <p>{data.main.temp_max} C&deg;</p> : null }
                 </section>
             </article>
