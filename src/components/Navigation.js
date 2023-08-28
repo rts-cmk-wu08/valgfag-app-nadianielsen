@@ -1,6 +1,6 @@
 import { NavLink } from "react-router-dom";
 import { GoHome } from "react-icons/go"
-import { FiSearch } from "react-icons/fi"
+import { FaLocationDot } from "react-icons/fa6"
 
 const Navigation = () => {
 
@@ -10,7 +10,7 @@ const Navigation = () => {
     return ( 
         <nav className="flex justify-evenly py-3">
             <NavLink to={"/"} className={({isActive}) => (isActive ? activeLink : normalLink)}><GoHome className="text-2xl"/></NavLink>
-            <NavLink to={"/search"} className={({isActive}) => (isActive ? activeLink : normalLink)}><FiSearch className="text-2xl"/></NavLink>
+            <NavLink to={"/search"} className={({isActive}) => (isActive ? activeLink : normalLink)}><FaLocationDot className="text-2xl"/></NavLink>
         </nav>
      );
 }
