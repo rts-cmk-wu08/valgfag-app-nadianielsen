@@ -10,7 +10,7 @@ const Navigation = () => {
     return ( 
         <nav className="flex justify-evenly py-3">
             <NavLink to={"/"} className={({isActive}) => (isActive ? activeLink : normalLink)}><GoHome className="text-2xl"/></NavLink>
-            <NavLink to={"/search"} className={({isActive}) => (isActive ? activeLink : normalLink)}><FaLocationDot className="text-2xl"/></NavLink>
+            <NavLink to={"/geolocation"} className={({isActive}) => (isActive ? activeLink : normalLink)}><FaLocationDot className="text-2xl"/></NavLink>
         </nav>
      );
 }
