@@ -3,6 +3,7 @@ import axios from "axios";
 import { FaArrowDown, FaArrowUp } from "react-icons/fa6";
 import { BsWind } from "react-icons/bs"
 import { WiHumidity } from "react-icons/wi"
+import DateComponent from "../components/DateComponent";
 
 const Home = () => {
 
@@ -30,29 +31,32 @@ const Home = () => {
             onKeyUpCapture={searchLocation} 
             placeholder="  Enter Location"/>
             {data.main ? 
+            <>
+            <DateComponent />
             <article className="flex flex-col gap-y-2 justify-center items-center place-self-center bg-neutral-300/30 w-60 py-4 rounded-2xl shadow-md">
                 <h2 className="text-xl font-bold">{data.name}</h2>
                 <p>{data.sys.country}</p>
                 <img src={`https://openweathermap.org/img/wn/${data.weather[0].icon}@2x.png`} alt="weatherIcon" />
-                {data.main ? <p className="text-lg font-semibold">{data.main.temp} C&deg;</p> : null}
+                {data.main ? <p className="text-lg font-semibold">{data.main.temp.toFixed()} C&deg;</p> : null}
                 {data.main ? <p>{data.weather[0].main}</p> : null}
                 {/* <p className="relative -rotate-90 -right-20">clouds</p> */}
             </article>
+            </>
             : null
             }
             {data.main ?
             <article className="grid grid-cols-3 gap-4 bg-white/30 shadow-md rounded-2xl w-72 place-self-center py-2">
                 <section className="place-self-center">
                     <h2 className="font-semibold">Feels like</h2>
-                    {data.main ? <p className="">{data.main.feels_like} C&deg;</p> : null }
+                    {data.main ? <p className="">{data.main.feels_like.toFixed()} C&deg;</p> : null }
                 </section>
                 <section className="place-self-center">
                     <h2 className="font-semibold flex gap-x-1">Min <FaArrowDown className="text-sm my-1.5"/></h2>
-                    {data.main ? <p className="">{data.main.temp_min} C&deg;</p> : null }
+                    {data.main ? <p className="">{data.main.temp_min.toFixed()} C&deg;</p> : null }
                 </section>
                 <section className="place-self-center">
                     <h2 className="font-semibold flex gap-x-1">Max <FaArrowUp className="text-sm my-1.5"/></h2>
-                    {data.main ? <p className="">{data.main.temp_max} C&deg;</p> : null }
+                    {data.main ? <p className="">{data.main.temp_max.toFixed()} C&deg;</p> : null }
                 </section>  
                 <section className="place-self-center">
                     <h2 className="font-semibold">Humidity</h2>
