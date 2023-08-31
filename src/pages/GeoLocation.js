@@ -1,6 +1,6 @@
 import axios from "axios";
 import { useEffect, useState } from "react";
-import { FaArrowRight } from "react-icons/fa6";
+// import { FaArrowRight } from "react-icons/fa6";
 
 const APIEndpoint = `https://api.openweathermap.org/data/2.5/weather?`
 const APIKey = `442a81c4f1406a8c0fac4a5aad6874aa`
@@ -38,7 +38,7 @@ const GeoLocation = () => {
     return !resData ? (<p>Finding location...</p>) : (
     <article className="grid gap-y-6 my-4">
         {/* <article className="flex flex-col gap-y-2 justify-center items-center place-self-center bg-neutral-300/30 w-60 py-4 rounded-2xl shadow-md">
-            <h2 className="text-xl font-bold">{resData.name}</h2>
+        <h2 className="text-xl font-bold">{resData.name}</h2>
             <p>{resData.sys.country}</p>
             <p className="text-lg font-semibold">{resData.main.temp} C&deg;</p>
             <p>{resData.weather[0].main}</p>
