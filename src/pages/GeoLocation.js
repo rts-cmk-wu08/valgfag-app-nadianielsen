@@ -1,6 +1,8 @@
 import axios from "axios";
 import { useEffect, useState } from "react";
-// import { FaArrowRight } from "react-icons/fa6";
+import { BsWind } from "react-icons/bs";
+import { FaArrowDown, FaArrowUp } from "react-icons/fa6";
+import { WiHumidity } from "react-icons/wi";
 
 const APIEndpoint = `https://api.openweathermap.org/data/2.5/weather?`
 const APIKey = `442a81c4f1406a8c0fac4a5aad6874aa`
@@ -17,7 +19,6 @@ const GeoLocation = () => {
             setLongitude(position.coords.longitude)
         })
 
-        // console.log(`${API_endpoint}lat=${latitude}&lon=${longtitude}&exclude=hourly,daily&appid=${API_key}`)
     }, []);
 
     useEffect(() => {
@@ -44,12 +45,36 @@ const GeoLocation = () => {
             <p>{resData.weather[0].main}</p>
         </article> */}
             <h2 className="text-xl font-bold place-self-center">{resData.name}</h2>
-        <article className="w-60 h-60 bg-neutral-300/50 border-2 rounded-full place-self-center flex flex-col justify-center items-center gap-y-3 shadow-md">
+        <article className="w-60 h-60 bg-neutral-300/40 rounded-full place-self-center flex flex-col justify-center items-center gap-y-3 shadow-md border-2">
             <p>{resData.weather[0].main}</p>
             <p className="text-3xl font-semibold">{resData.main.temp} C&deg;</p>
             <img className="w-16 h-16" src={`https://openweathermap.org/img/wn/${resData.weather[0].icon}@2x.png`} alt="weatherIcon" />
         </article>
-        <article className="w-[18rem] h-[17rem] bg-white/40 place-self-center rounded-2xl border-2">
+        <article className="w-[18rem] h-auto bg-neutral-300/40 place-self-center rounded-2xl shadow-md grid grid-cols-2 gap-4 place-items-center py-6">
+               {resData.main ? <section>
+                <h2 className="flex gap-1 font-semibold">Feels like</h2>
+                    <p>{resData.main.feels_like} C&deg;</p>
+                </section> : null}
+               {resData.main ? <section>
+                <h2 className="flex gap-1 font-semibold">Min <FaArrowDown className="my-1"/></h2>
+                    <p>{resData.main.temp_min} C&deg;</p>
+                </section> : null}
+               {resData.main ? <section>
+                <h2 className="flex gap-1 font-semibold">Max <FaArrowUp className="my-1"/></h2>
+                    <p>{resData.main.temp_max} C&deg;</p>
+                </section> : null}
+               {resData.main ? <section>
+                <h2 className="flex gap-1 font-semibold">Pressure</h2>
+                    <p>{resData.main.pressure}</p>
+                </section> : null}
+               {resData.main ? <section>
+                <h2 className="font-semibold">Humidity</h2>
+                    <p className="flex gap-1">{resData.main.humidity} <WiHumidity className="my-1 text-lg"/></p>
+                </section> : null}
+               {resData.main ? <section>
+                <h2 className="font-semibold">Wind</h2>
+                    <p className="flex gap-1">{resData.wind.speed} <BsWind className="my-1"/></p>
+                </section> : null}
         </article>
     </article>
     );

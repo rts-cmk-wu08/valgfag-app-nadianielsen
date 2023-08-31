@@ -41,7 +41,7 @@ const Home = () => {
             : null
             }
             {data.main ?
-            <article className="grid grid-cols-3 gap-4 bg-neutral-300/30 shadow-md rounded-2xl w-72 place-self-center py-2">
+            <article className="grid grid-cols-3 gap-4 bg-white/30 shadow-md rounded-2xl w-72 place-self-center py-2">
                 <section className="place-self-center">
                     <h2 className="font-semibold">Feels like</h2>
                     {data.main ? <p className="">{data.main.feels_like} C&deg;</p> : null }
