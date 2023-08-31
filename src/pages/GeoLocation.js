@@ -30,7 +30,7 @@ const GeoLocation = () => {
             axios.get(finalAPIEndPoint)
                 .then((response) => {
                     setResData(response.data)
-                    console.log(response.data)
+                    // console.log(response.data)
                 })
         }
 
