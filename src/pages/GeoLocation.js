@@ -37,7 +37,7 @@ const GeoLocation = () => {
     }, [latitude, longitude]);
 
     //resData er her, fordi man ved ikke hvornår dataen kommer fra useEffecten, hvis resdata ikke står der i returnet
-    return !resData ? (<p>Finding location...</p>) : (
+    return !resData ? (<p className="p-2">Finding location...</p>) : (
         <article className="grid gap-y-6 my-4">
             {/* <article className="flex flex-col gap-y-2 justify-center items-center place-self-center bg-neutral-300/30 w-60 py-4 rounded-2xl shadow-md">
         <h2 className="text-xl font-bold">{resData.name}</h2>
@@ -49,21 +49,21 @@ const GeoLocation = () => {
             <h2 className="text-xl font-bold place-self-center">{resData.name}</h2>
             <article className="w-60 h-60 bg-neutral-300/40 rounded-full place-self-center flex flex-col justify-center items-center gap-y-3 shadow-md border-2">
                 <p>{resData.weather[0].main}</p>
-                <p className="text-3xl font-semibold">{resData.main.temp.toFixed()} C&deg;</p>
+                <p className="text-3xl font-semibold">{resData.main.temp.toFixed()} &deg;C</p>
                 <img className="w-16 h-16" src={`https://openweathermap.org/img/wn/${resData.weather[0].icon}@2x.png`} alt="weatherIcon" />
             </article>
             <article className="w-[18rem] h-auto bg-neutral-300/40 place-self-center rounded-2xl shadow-md grid grid-cols-2 gap-4 py-6">
                 {resData.main ? <section className="px-8">
                     <h2 className="flex gap-1 font-semibold">Feels like</h2>
-                    <p>{resData.main.feels_like.toFixed()} C&deg;</p>
+                    <p>{resData.main.feels_like.toFixed()} &deg;C</p>
                 </section> : null}
                 {resData.main ? <section className="px-8">
                     <h2 className="flex gap-1 font-semibold">Min <FaArrowDown className="my-1" /></h2>
-                    <p>{resData.main.temp_min.toFixed()} C&deg;</p>
+                    <p>{resData.main.temp_min.toFixed()} &deg;C</p>
                 </section> : null}
                 {resData.main ? <section className="px-8">
                     <h2 className="flex gap-1 font-semibold">Max <FaArrowUp className="my-1" /></h2>
-                    <p>{resData.main.temp_max.toFixed()} C&deg;</p>
+                    <p>{resData.main.temp_max.toFixed()} &deg;C</p>
                 </section> : null}
                 {resData.main ? <section className="px-8">
                     <h2 className="flex gap-1 font-semibold">Pressure</h2>
