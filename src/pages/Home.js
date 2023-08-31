@@ -1,6 +1,8 @@
 import { useState } from "react";
 import axios from "axios";
 import { FaArrowDown, FaArrowUp } from "react-icons/fa6";
+import { BsWind } from "react-icons/bs"
+import { WiHumidity } from "react-icons/wi"
 
 const Home = () => {
 
@@ -15,7 +17,7 @@ const Home = () => {
             setData(response.data)
             setLocation('')
         })
-        }
+        } 
     }
 
     // console.log(data)
@@ -29,7 +31,7 @@ const Home = () => {
             placeholder="  Enter Location"/>
             {data.main ? 
             <article className="flex flex-col gap-y-2 justify-center items-center place-self-center bg-neutral-300/30 w-60 py-4 rounded-2xl shadow-md">
-                <h2 className="text-3xl font-bold">{data.name}</h2>
+                <h2 className="text-xl font-bold">{data.name}</h2>
                 <p>{data.sys.country}</p>
                 <img src={`https://openweathermap.org/img/wn/${data.weather[0].icon}@2x.png`} alt="weatherIcon" />
                 {data.main ? <p className="text-lg font-semibold">{data.main.temp} C&deg;</p> : null}
@@ -39,7 +41,7 @@ const Home = () => {
             : null
             }
             {data.main ?
-            <article className="grid grid-cols-3 gap-x-6 bg-neutral-300/30 shadow-md rounded-2xl w-72 place-self-center py-2">
+            <article className="grid grid-cols-3 gap-4 bg-neutral-300/30 shadow-md rounded-2xl w-72 place-self-center py-2">
                 <section className="place-self-center">
                     <h2 className="font-semibold">Feels like</h2>
                     {data.main ? <p className="">{data.main.feels_like} C&deg;</p> : null }
@@ -52,10 +54,18 @@ const Home = () => {
                     <h2 className="font-semibold flex gap-x-1">Max <FaArrowUp className="text-sm my-1.5"/></h2>
                     {data.main ? <p className="">{data.main.temp_max} C&deg;</p> : null }
                 </section>  
-                {/* <section>
-                    <h2 className="font-semibold">Maxium:</h2>
-                    {data.main ? <p className="">{data.main.temp_max} C&deg;</p> : null }
-                </section>   */}
+                <section className="place-self-center">
+                    <h2 className="font-semibold">Humidity</h2>
+                    {data.main ? <p className="flex gap-0.5">{data.main.humidity}<WiHumidity className="text-xl my-0.5"/></p> : null }
+                </section>  
+                <section className="place-self-center">
+                    <h2 className="font-semibold">Pressure</h2>
+                    {data.main ? <p className="">{data.main.pressure}</p> : null }
+                </section>  
+                <section className="place-self-center">
+                    <h2 className="font-semibold">Wind</h2>
+                    {data.main ? <p className="flex gap-x-2">{data.wind.speed}<BsWind className="text-sm my-1.5"/></p> : null }
+                </section>  
             </article>
             : null
             }
