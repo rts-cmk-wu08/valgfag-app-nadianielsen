@@ -4,7 +4,7 @@ import { FaLocationDot } from "react-icons/fa6"
 
 const Navigation = () => {
 
-    const activeLink = "text-neutral-600 drop-shadow-md"
+    const activeLink = "text-neutral-600 drop-shadow-md" 
     const normalLink = "text-white"
 
     return ( 
