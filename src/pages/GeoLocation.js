@@ -6,7 +6,7 @@ import { WiHumidity } from "react-icons/wi";
 import DateComponent from "../components/DateComponent";
 
 const APIEndpoint = `https://api.openweathermap.org/data/2.5/weather?`
-const APIKey = `442a81c4f1406a8c0fac4a5aad6874aa`
+const APIKey = process.env.REACT_APP_WEATHER
 
 const GeoLocation = () => {
 
