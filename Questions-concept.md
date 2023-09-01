@@ -18,3 +18,6 @@ Hvilke andre funktionaliteter kunne du forestille dig, at applikationen kunne ha
 Jeg ved ikke om jeg når det, men hvis jeg ikke har nået det, så er det at få vejret fra resten af ugen i et skema på appen. 
 Jeg kunne få lavet at baggrunden skiftet for hvilket slags vejr det er. 
 Man kunne også implementere noget onesignalmap til det, hvis man havde brugt for nogle notifikationer. 
+
+
+link til netlify = https://weather-app-nadia.netlify.app
