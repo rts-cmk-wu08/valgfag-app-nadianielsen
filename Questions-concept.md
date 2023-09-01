@@ -11,7 +11,7 @@ Målgruppen for min applikation er for mennesker som der tjekker vejret i deres 
 
 Hvad er den vigtigste funktionalitet i din applikation?
 
-At man kan søge om en lokations vejr og det kan displaye det ud på siden for brugeren.
+At man kan søge om ens lokations vejr og det kan displaye det ud på siden for brugeren.
 
 Hvilke andre funktionaliteter kunne du forestille dig, at applikationen kunne have (hvis du havde masser af tid)?
 
